@@ -64,9 +64,11 @@ const displayResults = (results) => {
       let imageURL = (result.image) ? result.image.url : 'imdb.svg'
 
       // Make a simple template for the movie and add it to the page
+      // Show title and year (if available). If year is missing, show an em-dash.
+      const yearText = result.year ? result.year : '—'
       div.innerHTML =
         `<img src="${imageURL}">
-        <p class="name">${result.title}</p>`
+        <p class="name">${result.title} <span class="year">(${yearText})</span></p>`
       mainContent.appendChild(div)
     })
   }
